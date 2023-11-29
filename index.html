@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD' crossorigin='anonymous'>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="style.css">
+  <title>Animal Murder Party</title>
+</head>
+<body class="bg-dark">
+  <header class="bg-purple p-2 text-light fs-3">
+    🦁Animal Murder Party <i class="mdi mdi-glass-cocktail"></i><i class="mdi mdi-knife"></i>
+  </header>
+  <main class="container text-light">
+    <section class="row">
+      <div class="col-12 mb-2">
+        <button class="btn btn-primary " onclick="moveAnimals()">party💃🥳🎉🪅</button>
+        <buttton class="btn btn-danger" onclick="accuse()">Accuse 🕵️‍♂️🕵️‍♀️</buttton>
+      </div>
+
+      <div class="col-6 col-md-4 mb-2">
+        <section class="border border-success rounded px-1 py-3">
+          <h4>Fancy Forrest 🌲 <button class="btn btn-outline-primary" onclick="searchLocation('🌲')">🔍</button></h4>
+          <span class="fs-4" id="🌲"></span>
+        </section>
+      </div>
+      <div class="col-6 col-md-4">
+        <section class="border border-warning rounded px-1 py-3">
+          <h4>Dehydrating Desert 🌵 <button class="btn btn-outline-primary" onclick="searchLocation('🌵')">🔍</button></h4>
+          <span class="fs-4" id="🌵"></span>
+        </section>
+      </div>
+      <div class="col-6 col-md-4">
+        <section class="border border-secondary rounded px-1 py-3">
+          <h4>Gift Shop 🎁 <button class="btn btn-outline-primary" onclick="searchLocation('🎁')">🔍</button></h4>
+          <span class="fs-4" id="🎁"></span>
+        </section>
+      </div>
+      <div class="col-6 col-md-4">
+        <section class="border border-info rounded px-1 py-3">
+          <h4>Wonderful Wetlands 🌾 <button class="btn btn-outline-primary" onclick="searchLocation('🌾')">🔍</button></h4>
+          <span class="fs-4" id="🌾"></span>
+        </section>
+      </div>
+    </section>
+    <section class="row" id="clues">
+<!-- clues will go here -->
+    </section>
+  </main>
+  
+
+
+  <script src="app.js"></script>
+</body>
+</html>

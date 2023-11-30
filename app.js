@@ -125,6 +125,7 @@ function drawAnimals(){
 }
 
 function moveAnimals(){
+  // Loop through animals array, assign each animals new currentLocation to a new random location
   animals.forEach(animal => {
     if(animal.emoji != '🪦'){
       let newLocation = locations[Math.floor(Math.random()*locations.length)]
@@ -139,12 +140,14 @@ function moveAnimals(){
 function murder(){
   let crimeScene = murderer.currentLocation
   console.log('🗡️',crimeScene)
+  // filter animals at the same location as the murderer
   let animalInRoom = animals.filter(animal => animal.currentLocation == crimeScene)
   console.log('🥫',animalInRoom);
+  // find one animal that isn't the murderer
   let victim = animalInRoom.find(animal => animal.emoji != murderer.emoji && animal.emoji != '🪦')
   console.log('😱', victim);
   if(victim){ // this will evaluate to true if there as victim, and false if there is not, skipping the 'killing'
-    victim.emoji = '🪦'
+    victim.emoji = '🪦' // kill animal
   }
   checkForLoss()
 }
@@ -154,6 +157,7 @@ function makeMurderer(){
 }
 
 function checkForLoss(){
+  // Looks at how many animals are dead, and compares that to see it it's all the animals (minus 1 for the murderer)
   let deadAnimals = animals.filter(animal => animal.emoji == '🪦') 
   if (animals.length -1 == deadAnimals.length){
     window.alert("You lost, you're a terrible detective.")
@@ -161,8 +165,10 @@ function checkForLoss(){
 }
 
 function accuse(){
+  // prompts the user to type in a name or emoji
   let accused = window.prompt("Who done it?")
   console.log('👉', accused);
+  // checks the user's input against the murderers emoji and anme
   if(accused == murderer.name || accused == murderer.emoji){
     window.alert('You got em 🚓')
   } else {
@@ -171,6 +177,7 @@ function accuse(){
 }
 
 function searchLocation(locationOfInterest){
+  // checks for gravestones at the location the user clicked on (location the user clicked on is passed as an argument from the HTML)
   console.log('🔍', locationOfInterest);
   let deadAnimals = animals.filter(animals => animals.emoji == '🪦' && animals.currentLocation == locationOfInterest)
   if(deadAnimals.length){
@@ -180,9 +187,9 @@ function searchLocation(locationOfInterest){
 }
 
 function getClue(){
-  let clue = clues.shift()
-  let clueElm = document.getElementById('clues')
-
+  let clue = clues.shift()  // removes the first item from the clues array
+  let clueElm = document.getElementById('clues') // gets the clue element
+// switch checks against
   switch(clue){
     case 'diet':
       clueElm.innerHTML += `
@@ -207,6 +214,8 @@ function getClue(){
     // clues.push(clue) you could push the clue back in the end to make the array "rotate"
     moveAnimals()
 }
+
+
 
 makeMurderer()
 drawAnimals()
